@@ -1,11 +1,10 @@
 {
   "private": true,
-  "name": "cara",
-  "description": "Playful and Colorful One-Page portfolio featuring Parallax effects and animations",
-  "version": "0.2.8",
-  "author": "LekoArts <hello@lekoarts.de>",
+  "name": "jk-dot-com",
+  "description": "The work of John Kreisher",
+  "version": "0.1.0",
+  "author": "John Kreisher <jkreish@gmail.com>",
   "license": "0BSD",
-  "starter-name": "gatsby-starter-portfolio-cara",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -24,7 +23,8 @@
     "gatsby-plugin-offline": "^3.3.3",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.13",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-social-icons": "^4.1.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.2"
