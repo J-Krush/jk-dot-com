@@ -28,7 +28,7 @@ const SkillCard = ({ title, children, bg }: SkillCardProps) => (
       },
     }}
   >
-    <div sx={{ color: `black`, opacity: 0.85 }}>
+    <div sx={{ color: `black`, opacity: 1.0 }}>
       {children}
     </div>
     <div
