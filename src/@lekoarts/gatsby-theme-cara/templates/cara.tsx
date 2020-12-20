@@ -4,8 +4,7 @@ import Layout from "@lekoarts/gatsby-theme-cara/src/components/layout"
 import Hero from "@lekoarts/gatsby-theme-cara/src/components/hero"
 import Projects from "@lekoarts/gatsby-theme-cara/src/components/projects"
 import About from "@lekoarts/gatsby-theme-cara/src/components/about"
-import Contact from "@lekoarts/gatsby-theme-cara/src/components/contact"
-
+import Contact from "../components/contact"
 import Skills from "../components/skills"
 
 const Cara = () => (

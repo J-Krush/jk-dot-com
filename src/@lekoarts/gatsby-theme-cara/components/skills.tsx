@@ -14,10 +14,6 @@ import SkillCard from "./skill-card"
 // @ts-ignore
 import SkillsMDX from "../sections/skills"
 
-
-
-
-
 const Skills = ({ offset, factor = 2 }: { offset: number; factor?: number }) => (
   <div>
     <Divider
