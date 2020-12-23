@@ -7,7 +7,7 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "develop:cypress": "cross-env CYPRESS_SUPPORT=y yarn develop",
     "build:cypress": "cross-env CYPRESS_SUPPORT=y yarn build",
     "start": "gatsby develop",
@@ -22,10 +22,13 @@
     "gatsby-plugin-netlify": "^2.4.0",
     "gatsby-plugin-offline": "^3.3.3",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.13",
+    "octokat": "^0.10.0",
     "react": "^16.13.1",
+    "react-countup": "^4.3.3",
     "react-dom": "^16.13.1",
     "react-social-icons": "^4.1.0",
-    "react-sweet-progress": "^1.1.2"
+    "react-sweet-progress": "^1.1.2",
+    "react-visibility-sensor": "^5.1.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.2"

@@ -2,18 +2,14 @@
 import React from "react"
 import { jsx } from "theme-ui"
 
-type ProjectCardProps = {
-  link: string
+type StatCardProps = {
   title: string
   children: React.ReactNode
   bg: string
 }
 
-const ProjectCard = ({ link, title, children, bg }: ProjectCardProps) => (
-  <a
-    href={link}
-    // target="_blank"
-    // rel="noreferrer noopener"
+const StatCard = ({ title, children, bg }: StatCardProps) => (
+  <div
     sx={{
       width: `100%`,
       boxShadow: `lg`,
@@ -32,7 +28,9 @@ const ProjectCard = ({ link, title, children, bg }: ProjectCardProps) => (
       },
     }}
   >
-    <div sx={{ opacity: 0.85, textShadow: `0 2px 10px rgba(0, 0, 0, 0.3)` }}>{children}</div>
+    <div sx={{ display: 'flex',  justifyContent:'center', alignItems:'center', color: `white`, opacity: 0.85, textShadow: `0 2px 10px rgba(0, 0, 0, 0.3)` }}>
+      {children}
+    </div>
     <div
       sx={{
         textTransform: `uppercase`,
@@ -41,11 +39,12 @@ const ProjectCard = ({ link, title, children, bg }: ProjectCardProps) => (
         fontSize: [4, 5],
         fontWeight: `medium`,
         lineHeight: 1,
+        color: `white`,
       }}
     >
       {title}
     </div>
-  </a>
+  </div>
 )
 
-export default ProjectCard
+export default StatCard
