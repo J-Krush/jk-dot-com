@@ -21,8 +21,10 @@ import StatsMDX from "../sections/stats"
 const Stats = ({ offset, factor = 2 }: { offset: number; factor?: number }) => {
 
     var [statsFetched, setStatsFetched] = useState(false)
-    var [count, setCount] = useState(0)
-    var [countUp, setCountUp] = useState(0)
+    var [pushEventsCount, setPushEventsCount] = useState(0)
+    var [pushEventsCountUp, setPushEventsCountUp] = useState(0)
+    var [pullEventsCount, setPullEventsCount] = useState(0)
+    var [pullEventsCountUp, setPullEventsCountUp] = useState(0)
 
     useEffect(() => {
         console.log('use effect')
@@ -44,11 +46,12 @@ const Stats = ({ offset, factor = 2 }: { offset: number; factor?: number }) => {
 
                     let pullEvents = events.filter(e => e.type === 'PullRequestEvent' && e.payload.action === 'closed')
                     
-                    console.log('pull events: ', pullEvents.length)
-                    console.log('push events; ', pushEvents.length)
+                    let reviewEvents = events.filter(e => e.type === 'PullRequestReviewCommentEvent')
 
-                    setCount(pushEvents.length)
-                    
+                    console.log('review events: ', reviewEvents)
+
+                    setPushEventsCount(pushEvents.length)
+                    setPullEventsCount(pullEvents.length)
                 })
                 
             })
@@ -65,16 +68,11 @@ const Stats = ({ offset, factor = 2 }: { offset: number; factor?: number }) => {
             offset={1.1}
             factor={factor}
             />
-
-                
-
-            
                 <Content speed={0.4} offset={offset + 0.2} factor={factor}>
-                    {/* <StatsMDX /> */}
-                        <div sx={{ width: '100%' }}>
-                            <h1 sx={{fontSize: 60, paddingBottom: 0 }}>Stats</h1>
-                            <p sx={{ marginTop: -40, paddingBottom: 30 }}>Past 90 days</p>
-                        </div>
+                    <div sx={{ width: '100%' }}>
+                        <h1 sx={{fontSize: 41, paddingBottom: 0 }}>Stats</h1>
+                        <p sx={{ marginTop: -30, paddingBottom: 30 }}>Past 90 days</p>
+                    </div>
                 <Inner>
                     <div
                     sx={{
@@ -88,7 +86,7 @@ const Stats = ({ offset, factor = 2 }: { offset: number; factor?: number }) => {
                         <VizSensor
                             onChange={(isVisible) => {
                                 console.log('==== VIS SENSOR CHANGE =====', isVisible)
-                                isVisible && setCountUp(count)
+                                isVisible && setPushEventsCountUp(pushEventsCount)
                             }}>
                             <StatCard
                                 title="Commits"
@@ -96,9 +94,25 @@ const Stats = ({ offset, factor = 2 }: { offset: number; factor?: number }) => {
                                 >
                                     <h1 sx={{ fontSize: 100 }}>
                                         <CountUp
-                                            end={countUp}
+                                            end={pushEventsCountUp}
                                         />
                                     </h1>
+                            </StatCard>
+                        </VizSensor>
+                        <VizSensor
+                            onChange={(isVisible) => {
+                                console.log('==== VIS SENSOR CHANGE =====', isVisible)
+                                isVisible && setPullEventsCountUp(pullEventsCount)
+                            }}>
+                            <StatCard
+                                    title="PR's Merged"
+                                    bg="linear-gradient(to right, #692d8b 0%, #ec1f79 100%)"
+                                    >
+                                        <h1 sx={{ fontSize: 100 }}>
+                                            <CountUp
+                                                end={pullEventsCountUp}
+                                            />
+                                        </h1>
                             </StatCard>
                         </VizSensor>
                     </div>

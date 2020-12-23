@@ -28,7 +28,7 @@ const StatCard = ({ title, children, bg }: StatCardProps) => (
       },
     }}
   >
-    <div sx={{ display: 'flex',  justifyContent:'center', alignItems:'center', color: `black`, opacity: 1.0 }}>
+    <div sx={{ display: 'flex',  justifyContent:'center', alignItems:'center', color: `white`, opacity: 0.85, textShadow: `0 2px 10px rgba(0, 0, 0, 0.3)` }}>
       {children}
     </div>
     <div
@@ -39,7 +39,7 @@ const StatCard = ({ title, children, bg }: StatCardProps) => (
         fontSize: [4, 5],
         fontWeight: `medium`,
         lineHeight: 1,
-        color: `black`,
+        color: `white`,
       }}
     >
       {title}
