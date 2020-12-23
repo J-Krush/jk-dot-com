@@ -27,12 +27,12 @@ const Stats = ({ offset, factor = 2 }: { offset: number; factor?: number }) => {
     var [pullEventsCountUp, setPullEventsCountUp] = useState(0)
 
     useEffect(() => {
-        console.log('use effect')
+        // console.log('use effect')
         !statsFetched && getGithubProfile()
     })
 
     const getGithubProfile = () => {
-        console.log('get github profile')
+        // console.log('get github profile')
         setStatsFetched(true)
         const github = require('octokat')({ token: '2bf21cc29e8bf4520a3d02d83740a0ffbc182a59' })
         
@@ -41,14 +41,14 @@ const Stats = ({ offset, factor = 2 }: { offset: number; factor?: number }) => {
             .then(events => {
                 let all = events.fetchAll()
                 .then(events => {
-                    console.log('events: ', events)
+                    // console.log('events: ', events)
                     let pushEvents = events.filter(e => e.type === 'PushEvent')
 
                     let pullEvents = events.filter(e => e.type === 'PullRequestEvent' && e.payload.action === 'closed')
                     
                     let reviewEvents = events.filter(e => e.type === 'PullRequestReviewCommentEvent')
 
-                    console.log('review events: ', reviewEvents)
+                    // console.log('review events: ', reviewEvents)
 
                     setPushEventsCount(pushEvents.length)
                     setPullEventsCount(pullEvents.length)
@@ -70,8 +70,8 @@ const Stats = ({ offset, factor = 2 }: { offset: number; factor?: number }) => {
             />
                 <Content speed={0.4} offset={offset + 0.2} factor={factor}>
                     <div sx={{ width: '100%' }}>
-                        <h1 sx={{fontSize: 41, paddingBottom: 0 }}>Stats</h1>
-                        <p sx={{ marginTop: -30, paddingBottom: 30 }}>Past 90 days</p>
+                        <StatsMDX />
+                        <p sx={{ marginTop: 0, paddingBottom: 25 }}>Past 90 days</p>
                     </div>
                 <Inner>
                     <div
@@ -85,7 +85,7 @@ const Stats = ({ offset, factor = 2 }: { offset: number; factor?: number }) => {
                         
                         <VizSensor
                             onChange={(isVisible) => {
-                                console.log('==== VIS SENSOR CHANGE =====', isVisible)
+                                // console.log('==== VIS SENSOR CHANGE =====', isVisible)
                                 isVisible && setPushEventsCountUp(pushEventsCount)
                             }}>
                             <StatCard
