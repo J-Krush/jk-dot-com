@@ -6,12 +6,6 @@ const socialIconStyle = {
 }
 
 export default () => {
-    
-    useEffect(() => {
-        console.log('use effect')
-        getGithubProfile()
-    })
-
     return (
         <div>
             <h1 style={{ fontSize: 41 }}>Get in touch</h1>
@@ -28,26 +22,4 @@ export default () => {
             </div>
         </div>
     )
-}
-
-function getGithubProfile() {
-
-    fetch('https://github.com/j-krush/', {
-        headers: {
-            'Access-Control-Allow-Origin': 'http://localhost:8000',
-          },
-    })
-    .then(response => console.log(response))
-}
-
-function getGithubStats(html) {
-    let cheerio = require('cheerio')
-    let $ = cheerio.load(html)
-
-    // For each .item, we add all the structure of a company to the companiesList array
-    // Don't try to understand what follows because we will do it differently.
-
-    let contributions = $('h2 .f4 .mb-2').text()
-
-    console.log(contributions); // Output the data in the terminal
 }
