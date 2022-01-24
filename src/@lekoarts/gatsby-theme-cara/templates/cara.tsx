@@ -12,13 +12,13 @@ import Skills from "../components/skills"
 const Cara = () => {  
   return (
       <Layout>
-        <Parallax pages={6}>
+        <Parallax pages={4}>
           <Hero offset={0} factor={1} />
           <Skills  offset={1} factor={1} />
           {/* <Stats offset={2} factor={2} /> */}
           {/* <Projects offset={3} factor={2} /> */}
-          <About offset={4} factor={1} />
-          <Contact offset={5} factor={1} />
+          <About offset={2} factor={1} />
+          <Contact offset={3} factor={1} />
         </Parallax>
       </Layout>
     )
